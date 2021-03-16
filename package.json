@@ -1,0 +1,27 @@
+{
+  "arc": {
+    "app": "testing-app",
+    "http": [
+      {
+        "/api": {
+          "method": "get",
+          "src": "/api"
+        }
+      }
+    ]
+  },
+  "name": "begin-app",
+  "version": "0.0.0",
+  "description": "Begin intro to testing app",
+  "scripts": {
+    "start": "npx sandbox",
+    "test": "PORT=6666 tape test/*-test.js ./test/**/*-test.js | tap-spec"
+  },
+  "devDependencies": {
+    "@architect/sandbox": "latest",
+    "@begin/data": "latest",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.2.2",
+    "tiny-json-http": "^7.3.0"
+  }
+}
