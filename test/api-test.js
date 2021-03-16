@@ -32,7 +32,7 @@ test('get /api (continuation-passing style)', t => {
   })
 })
 
-test('get / (promise style)', t => {
+test('get /api (promise style)', t => {
   t.plan(1)
   tiny.get({url})
     .then(function win (result) {
@@ -45,7 +45,7 @@ test('get / (promise style)', t => {
     })
 })
 
-test('get / (async/await style)', async t => {
+test('get /api (async/await style)', async t => {
   t.plan(1)
   try {
     let result = await tiny.get({url})
@@ -63,4 +63,4 @@ test('Shut down the Sandbox', async t => {
   t.equal(result, 'Sandbox successfully shut down')
 })
 
-let didNotLoad = 'You are likely seeing 404 or ECONNREFUSED errors because you do not have a `get /` HTTP function and also do not have a `public/index.html` file\nPlease make use of one or the other to respond to web requests at the root of your application'
+let didNotLoad = 'You are likely seeing 404 or ECONNREFUSED errors because you do not have a `get /api` HTTP function and also do not have a `public/index.html` file\nPlease make use of one or the other to respond to web requests at the root of your application'
