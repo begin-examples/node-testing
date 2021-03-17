@@ -1,4 +1,4 @@
-module.exports = async function http() {
+exports.handler = async function http() {
   return {
     success: true
   }
