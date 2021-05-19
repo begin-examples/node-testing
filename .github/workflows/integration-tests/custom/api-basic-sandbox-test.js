@@ -17,7 +17,7 @@ test('Request to /api', async (t) => {
   t.plan(1)
   try {
     const result = await tiny.get({ url: baseUrl + '/api' })
-    t.ok(result.body, 'request to root responded')
+    t.ok(result.body, 'request to /api responded')
   }
   catch (e) {
     t.fail('request to /api failed')
