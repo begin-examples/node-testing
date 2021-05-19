@@ -30,15 +30,3 @@ test('end', async (t) => {
   await sandbox.end()
   t.ok(true, 'ended')
 })
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
