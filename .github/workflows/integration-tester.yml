@@ -69,6 +69,9 @@ jobs:
 
   sandbox_tests:
     needs: sandbox_tests_exist
+    env:
+      #set to true and check later on
+      CUSTOM_TESTS: true
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -117,10 +120,10 @@ jobs:
         run: echo "TEST_CONFIG_RUN=$(cat .github/workflows/integration-tests/generated/tests-config.json | jq '.run')" >> $GITHUB_ENV
 
       - name: Check for custom tests
-        run: test -f .github/workflows/integration-tests/custom/**sandbox-test.js || echo "NO_CUSTOM_TESTS=true" >> $GITHUB_ENV
+        run: test -f .github/workflows/integration-tests/custom/**sandbox-test.js || echo "CUSTOM_TESTS=false" >> $GITHUB_ENV
 
       - name: Run Custom Sandbox Tests
-        if: ${{!env.NO_CUSTOM_TESTS}}
+        if: ${{env.CUSTOM_TESTS}}==true
         run: QUIET=1 npx tape .github/workflows/integration-tests/custom/**sandbox-test.js | npx tap-spec
 
         #fails if no custom tests present
